@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.a4-container {
+    width: 297mm;
+    height: 210mm;
+    margin: 5px auto;
+    padding: 4em;
+    border: 1px solid #ddd;
+    page-break-after: always;
+    background-color: #FFFFFF;
+    background-image: url("bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#preview {
+    height: 100vh;
+    background-color: #1E1D1B;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 1em;
+}
+
+.button-group {
+    margin-top: 10px;
+}
+
+.capa {
+
+}
+
+.capa .toper {
+    height: fit-content;
+    text-align: center;
+
+}
+
+.capa .toper p:first-of-type {
+    color: #173b53;
+    font-size: 6em;
+    font-weight: bolder;
+    font-family: "Open Sans", sans-serif;
+    text-shadow: 5px 5px 0px rgb(163, 121, 71);
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: .8em;
+
+    letter-spacing: 0;
+
+}
+
+.capa .toper p.middle {
+    color: #b98f4a;
+    font-size: 4.5em;
+    margin: 0;
+    font-family: "Playwrite CU", cursive;
+    font-optical-sizing: auto;
+    font-weight: < weight >;
+    font-style: normal;
+}
+
+.capa .toper p:last-of-type {
+    color: #000000;
+    font-size: 3em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3.5em;
+    text-align: justify;
+}
+.content.valid {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    padding: 0 3.5em;
+    justify-content: center;
+}
+
+
+.content h1 {
+    font-size: 3em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.content p {
+    font-size: 15px;
+}
+
+.content p.for-date-cert {
+    margin: 0;
+}
+
+.content p.mini {
+    width: 75%;
+    font-size: 12px;
+    align-self: center;
+    margin-top: 2.5em;
+    margin-bottom: .5em;
+    text-align: justify;
+    color: #b98f4a;
+    font-weight: bolder;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer .logo {
+    display: flex;
+    width: 15em;
+    height: 6em;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.footer .signature {
+    display: flex;
+    width: 20em;
+    height: 8em;
+    background-image: url("signature.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.content .result_validate {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.cert_ok {
+    font-weight: bolder;
+    color: #3A7734;
+    font-size: 1.5em;
+}
+
+#footer_code {
+    display: flex;
+    justify-self: center;
+    font-size: .75em;
+    padding-top: 1em;
+}
+
+
+
+
+
+
+
+
+
+/*.informacoes {*/
+/*    font-size: 14px;*/
+/*}*/
+
+/* FOMULARIO */
+.ui.styled.accordion .active.title,
+.ui.styled.accordion[open] > .title,
+.ui.styled.accordion .accordion > .title:first-child, .ui.styled.accordion > .title:first-child {
+    font-size: 24px;
+}
+
+.ui.styled.accordion > .title:hover {
+    font-size: 24px;
+}
+
+.ui.accordion .content form {
+    display: grid !important;
+}
+
+.content.active {
+    background-color: rgba(74, 19, 184, 0.03);
+}
+
+form#clientForm {
+    display: grid;
+    column-gap: 1em;
+    grid-template-columns: 1fr;
+}
+
+.n-d {
+    display: grid;
+    column-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+form#clientForm input[type=text],
+form#clientForm input[type=date],
+form#clientForm input[type=number],
+form#clientForm input[type=date],
+form#clientForm select,
+form#clientForm input[type=file] {
+    width: 100%;
+    height: 3em;
+    padding: .5em;
+    border-radius: 5px;
+    align-self: end;
+
+}
+
+form#clientForm .a-d label,
+form#clientForm .n-d label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: .5em;
+    color: #515151;
+    font-weight: bold;
+}
+
+form#clientForm button {
+    width: 10em;
+    padding: 1em 0;
+    border-radius: 5px;
+    background-color: #4e14bf;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+}
+
+form#clientForm button:hover {
+    background-color: #7147c5;
+    transition: .5s;
+
+}
+
+
+
