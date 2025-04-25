@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador relatorio avaliativo | Instituto NEURO</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="certificado-etapa1.css">
+
+    <!-- You MUST include jQuery 3.4+ before Fomantic -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+</head>
+<body>
+
+
+<div class="ui styled fluid accordion">
+    <div class="title active">
+        <i class="dropdown icon"></i>
+        DADOS DO ALUNO
+    </div>
+    <div class="content active">
+        <form id="clientForm" style="display: grid">
+            <div class="a-d">
+                <label>Nome Completo: <input type="text" id="nome_aluno"></label>
+
+                <label for="course">Curso:
+                    <select id="course" name="tipocourse">
+                        <option value="CAPACITAÇÃO - ENSINO DE HABILIDADES SOCIAIS">CAPACITAÇÃO - ENSINO DE HABILIDADES SOCIAIS</option>
+                    </select></label>
+
+<div class="n-d">
+                <label for="dia_cert_start">Início dos estudos:
+                    <select id="dia_cert_start" name="tipodia_cert_start">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </label>
+
+                <label for="mes_cert_start">Mês:
+                    <select id="mes_cert_start" name="tipomes_cert_start">
+                        <option value="janeiro">Janeiro</option>
+                        <option value="fevereiro">Fevereiro</option>
+                        <option value="março">Março</option>
+                        <option value="abril">Abril</option>
+                        <option value="maio">Maio</option>
+                        <option value="junho">Junho</option>
+                        <option value="julho">Julho</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="setembro">Setembro</option>
+                        <option value="outubro">Outubro</option>
+                        <option value="novembro">Novembro</option>
+                        <option value="dezembro">Dezembro</option>
+                    </select></label>
+
+                <label>Ano: <input type="number" id="ano_cert_start" placeholder="2025"></label>
+            </div>
+            <div class="n-d">
+                <label for="dia_cert">Dia da conclusão:
+                    <select id="dia_cert" name="tipodia_cert">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </label>
+
+                <label for="mes_cert">Mês da conclusão:
+                    <select id="mes_cert" name="tipomes_cert">
+                        <option value="janeiro">Janeiro</option>
+                        <option value="fevereiro">Fevereiro</option>
+                        <option value="março">Março</option>
+                        <option value="abril">Abril</option>
+                        <option value="maio">Maio</option>
+                        <option value="junho">Junho</option>
+                        <option value="julho">Julho</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="setembro">Setembro</option>
+                        <option value="outubro">Outubro</option>
+                        <option value="novembro">Novembro</option>
+                        <option value="dezembro">Dezembro</option>
+                    </select></label>
+
+                <label>Ano da conclusão: <input type="number" id="ano_cert" placeholder="2025"></label>
+            </div>
+            </div>
+
+
+            <div class="button-group">
+                <button type="button" onclick="saveData()">SALVAR</button>
+                <button type="button" onclick="clearData()">LIMPAR</button>
+                <button type="button" onclick="generatePDF()">EXPORTAR PDF</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div id="preview">
+    <div id="page_capa" class="a4-container capa">
+        <div class="toper">
+            <p>CERTIFICADO</p>
+            <p class="middle">de conclusão</p>
+            <p>Certifico que</p>
+        </div>
+
+        <div class="content">
+            <h1 class="nome_aluno">
+                João da Silva e Silva
+            </h1>
+
+            <p>
+                Concluiu com 100% de aproveitamento e participação o curso de Formação e Capacitação “<font class="course"></font>", na plataforma de cursos INSTITUTO NEURO CAPACITAÇÃO CURSOS E EVENTOS LTDA CNPJ
+                37921999000111, na modalidade de curso livre conforme decreto Presidencial de N° 5154, de 23 de julho de
+                2004, art. 14. Carga horária de 80 horas.
+            </p>
+
+            <p class="for-date-cert"><b>
+                Data de início e conclusão do curso:
+            </b></p>
+            <p class="dates-cert">
+                De <font class="dia_cert_start"></font> de <font class="mes_cert_start"></font> de <font class="ano_cert_start"></font> a <font class="dia_cert"></font> de <font class="mes_cert"></font> de <font class="ano_cert"></font>.
+            </p>
+
+            <p class="mini">
+                Os cursos livres têm como Base Legal o Decreto Presidencial N° 5.154, de 23 de julho de 2004, Art. 1° e
+                3° e PORTARIA Nº 008, de 25/06/2002 publicado no DIÁRIO OFICIAL – SC – Nº 16.935 – 27.06.2002. Assim as
+                organizações que oferecem este tipo de curso têm direito de emitir certificado ao aluno em conformidade
+                com a Lei nº 9394/96; Decreto nº 5.154/04; Deliberação CEE 14/97 (Indicação CEE 14/97). Esses
+                Certificados têm validade legal para diversos fins. Desta forma a jurisprudência do Conselho Nacional de
+                Educação do brasil tem sido no sentido de declarar-lhes a equivalência, de acordo com regras amplas e
+                flexíveis.
+            </p>
+        </div>
+
+        <div class="footer">
+            <span class="logo"></span>
+            <span class="signature"></span>
+        </div>
+        <p id="footer_code">CÓDIGO PARA VALIDAÇÃO DO CERTIFICADO: 79MPA</p>
+    </div>
+</div>
+
+<script>
+    function saveData() {
+        const nome_aluno = document.getElementById('nome_aluno').value;
+        const ano_cert = document.getElementById('ano_cert').value;
+        const mes_cert = document.getElementById('mes_cert').value;
+        const dia_cert = document.getElementById('dia_cert').value;
+        const course = document.getElementById('course').value;
+        const ano_cert_start = document.getElementById('ano_cert_start').value;
+        const mes_cert_start = document.getElementById('mes_cert_start').value;
+        const dia_cert_start = document.getElementById('dia_cert_start').value;
+
+
+        document.cookie = `nome_aluno=${nome_aluno};max-age=86400`;
+        document.cookie = `ano_cert=${ano_cert};max-age=86400`;
+        document.cookie = `mes_cert=${mes_cert};max-age=86400`;
+        document.cookie = `dia_cert=${dia_cert};max-age=86400`;
+        document.cookie = `course=${course};max-age=86400`;
+        document.cookie = `ano_cert_start=${ano_cert_start};max-age=86400`;
+        document.cookie = `mes_cert_start=${mes_cert_start};max-age=86400`;
+        document.cookie = `dia_cert_start=${dia_cert_start};max-age=86400`;
+
+        displayData(nome_aluno, ano_cert, mes_cert, dia_cert, course, ano_cert_start, mes_cert_start, dia_cert_start);
+    }
+
+    function displayData(nome_aluno, ano_cert, mes_cert, dia_cert, course, ano_cert_start, mes_cert_start, dia_cert_start) {
+        const avaliadoFields = document.querySelectorAll('.nome_aluno');
+        avaliadoFields.forEach(field => {
+            field.textContent = nome_aluno;
+        });
+
+        const mes_certFields = document.querySelectorAll('.mes_cert');
+        mes_certFields.forEach(field => {
+            field.textContent = mes_cert;
+        });
+
+        const idavaliadoFields = document.querySelectorAll('.ano_cert');
+        idavaliadoFields.forEach(field => {
+            field.textContent = ano_cert;
+        });
+
+
+        const dataavaFields = document.querySelectorAll('.dia_cert');
+        dataavaFields.forEach(field => {
+            field.textContent = dia_cert;
+        });
+
+        const instagramFields = document.querySelectorAll('.course');
+        instagramFields.forEach(field => {
+            field.textContent = course;
+        });
+
+        const mes_certFields_start = document.querySelectorAll('.mes_cert_start');
+        mes_certFields_start.forEach(field => {
+            field.textContent = mes_cert_start;
+        });
+
+        const idavaliadoFields_start = document.querySelectorAll('.ano_cert_start');
+        idavaliadoFields_start.forEach(field => {
+            field.textContent = ano_cert_start;
+        });
+
+
+        const dataavaFields_start = document.querySelectorAll('.dia_cert_start');
+        dataavaFields_start.forEach(field => {
+            field.textContent = dia_cert_start;
+        });
+
+        const caminho = window.location.pathname; // Obtém o caminho da URL
+        const nomeArquivo = caminho.substring(caminho.lastIndexOf('/') + 1); // Extrai apenas o nome do arquivo
+        const codigo = nomeArquivo.replace('.html', ''); // Remove a extensão .html
+
+        const code_html = document.getElementById('footer_code')
+        code_html.innerHTML = "CÓDIGO PARA VALIDAÇÃO DO CERTIFICADO: " + codigo
+
+    }
+
+
+    function clearData() {
+        document.getElementById('clientForm').reset();
+        document.cookie = "nome_aluno=;max-age=0";
+        document.cookie = "ano_cert=;max-age=0";
+        document.cookie = "mes_cert=;max-age=0";
+        document.cookie = "dia_cert=;max-age=0";
+        document.cookie = "course=;max-age=0";
+        document.cookie = "ano_cert_start=;max-age=0";
+        document.cookie = "mes_cert_start=;max-age=0";
+        document.cookie = "dia_cert_start=;max-age=0";
+    }
+
+    async function generatePDF() {
+        const {jsPDF} = window.jspdf;
+        const pdf = new jsPDF({orientation: 'landscape'}); // Define orientação paisagem
+
+        const preview = document.getElementById('preview');
+        const sections = preview.querySelectorAll('.a4-container');
+
+        for (const section of sections) {
+            // Captura cada seção como imagem usando html2canvas
+            const canvas = await html2canvas(section, {
+                useCORS: true, // Permite capturar imagens externas
+                backgroundColor: null // Garante que o fundo seja renderizado corretamente
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+            pdf.addImage(imgData, 'PNG', 0, 0, 297, 210); // Ajuste de dimensões para formato paisagem
+            pdf.addPage(); // Adiciona nova página no PDF
+        }
+
+        // Remove última página extra
+        const caminho = window.location.pathname; // Obtém o caminho da URL
+        const nomeArquivo = caminho.substring(caminho.lastIndexOf('/') + 1); // Extrai apenas o nome do arquivo
+        const codigo = nomeArquivo.replace('.html', ''); // Remove a extensão .html
+
+        pdf.deletePage(pdf.internal.getNumberOfPages());
+        pdf.save("certificado_codigo_" + codigo + ".pdf");
+    }
+
+
+
+
+    window.onload = () => {
+        const cookies = document.cookie.split('; ');
+        let nome_aluno, ano_cert, mes_cert, dia_cert, course, ano_cert_start, mes_cert_start, dia_cert_start;
+
+        cookies.forEach(cookie => {
+            const [key, value] = cookie.split('=');
+            if (key === 'nome_aluno') nome_aluno = value;
+            if (key === 'ano_cert') ano_cert = value;
+            if (key === 'mes_cert') mes_cert = value;
+            if (key === 'dia_cert') dia_cert = value;
+            if (key === 'course') course = value;
+            if (key === 'ano_cert_start') ano_cert_start = value;
+            if (key === 'mes_cert_start') mes_cert_start = value;
+            if (key === 'dia_cert_start') dia_cert_start = value;
+        });
+
+        if (nome_aluno || ano_cert || mes_cert || dia_cert || course || ano_cert_start || mes_cert_start || dia_cert_start) {
+            displayData(nome_aluno, ano_cert, mes_cert, dia_cert, course, ano_cert_start, mes_cert_start, dia_cert_start);
+        }
+    };
+</script>
+<script>
+    $('.ui.accordion')
+        .accordion()
+    ;
+</script>
+</body>
+</html>
