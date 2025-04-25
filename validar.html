@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Certificado | Instituto NEURO</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="certificado-etapa1.css">
+
+    <!-- You MUST include jQuery 3.4+ before Fomantic -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+</head>
+<body>
+
+
+<div class="ui styled fluid accordion">
+    <div class="title active">
+        <i class="dropdown icon"></i>
+        VALIDAR CERTIFICADO
+    </div>
+    <div class="content active">
+        <form id="clientForm" style="display: grid">
+            <div class="a-d">
+                <label>Código do certificado: <input type="text" id="codigo"></label>
+            </div>
+
+
+
+            <div class="button-group">
+                <button type="button" onclick="saveData()">VALIDAR</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div id="preview">
+    <div id="page_capa" class="a4-container capa">
+        <div class="toper">
+            <p>CERTIFICADO</p>
+            <p class="middle">de conclusão</p>
+        </div>
+
+        <div class="content valid">
+            <p class="result_validate">
+                INSIRA O CÓDIGO DO CERTIFICADO NO FORMULÁRIO ACIMA.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function saveData() {
+    const codigo = document.getElementById('codigo').value.toUpperCase();
+    const check_result = document.querySelector('.result_validate');
+
+    if (codigo === '1XQ3') {
+        check_result.innerHTML = `
+            <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+            Curso: APROFUNDAMENTO EM AVALIAÇÃO E PRÁTICAS PSICOPEDAGÓGICAS<br/>
+            Carga horária: 650 horas.<br/>
+            Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/avaliacao-psicopedagogica/" target="_blank">Ver detalhes</a>
+        `;
+    } else if (codigo === 'F1QX') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO TEÓRICO - PRÁTICO DE TESTES TEA E TDAH: DA AVALIAÇÃO A INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/testes-de-autismo-e-tdah-da-avaliacao-e/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'XQ31') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ABA NO TEA - APLICADOR ABA<br/>
+        Carga horária: 180 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aba-no-tea-ensino-de-habilidades/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'QX13') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ABA na EDUCAÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aba-na-educacao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'QX31') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: PEP 3 + PEP R PERFIL PSICOEDUCACIONAL<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/pep-3-perfil-psicoeducacional-terceira/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'XQ13') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: Escala Bayley 3<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/escala-bayley-3/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '1XQ32') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: Alfabetização no Autismo<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/alfabetizacao-no-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'QX312') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: Transtornos e Dificuldades de Aprendizagem<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/transtornos-e-dificuldades-de-aprendizag/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'XQ132') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: PEI + PLANO DE AULA NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/pei-plano-de-aula-na-pratica/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'QX31A') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: MEDIAÇÃO ESCOLAR NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/mediacao-escolar-na-pratica/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'YK8Z') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO: TDAH NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/tdah-na-pratica-curso-gratuito/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'N7ZK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: Atendimento online na prática- Da avaliação à intervenção<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/atendimento-online-na-pratica-da-avalia/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'ZK87') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: EDUCAÇÃO INCLUSIVA E ADAPTAÇÃO CURRICULAR<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/educacao-inclusiva-e-adaptacao-curricula/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'K87Z') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ENSINO DE HABILIDADES BÁSICAS NO AUTISMO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ensino-de-habilidades-basicas/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'K7Z8') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: AUTISMO E SELETIVIDADE ALIMENTAR - TERAPIA ALIMENTAR COM ABORDAGEM ABA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/autismo-e-seletividade-alimentar-terap/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '87ZK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ANÁLISE DO DESENHO INFANTIL - O PROCESSO DE AVALIAÇÃO NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-avaliacao-do-desenho-infan/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'KZ87') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CONSCIÊNCIA FONOLÓGICA - AVALIAR E INTERVIR NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/consciencia-fonologica-avaliar-e-inter/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '87ZKB') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DISLEXIA - AVALIAÇÃO E INTERVENÇÃO PADRÃO OURO + TESTES<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-testes-de-rastreio-da-disl/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'K7Z88') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO: ESTIMULAÇÃO E INTERVENÇÃO PRECOCE - NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-estimulacao-e-intervencao-p/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'K7Z8C') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO: EDUCAÇÃO INCLUSIVA NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-educacao-inclusiva-na-prati/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'WL2B') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - INTERVENÇÕES DO TDAH NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-intervencoes-do-tdah-na-pr/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'P83W') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ESTRATÉGIAS INCLUSIVAS NO PROCESSO DE ALFABETIZAÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-estrategias-inclusivas-no/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'BML2') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DIFICULDADES E TRANSTORNOS DE APRENDIZAGEM DA LEITURA E ESCRITA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-dificuldade-de-aprendizage/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'ML2B') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - TOD: TRANSTORNO OPOSITIVO DESAFIADOR - AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-tod-transtorno-opositivo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MBL2') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - DISCALCULIA: AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-discalculia-avaliacao-e-i/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'L2BM') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO- DISGRAFIA: AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-disgrafia-avaliacao-e-inte/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'W2BL') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - FUNÇÕES EXECUTIVAS: AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-funcoes-executivas-avali/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'BML2E') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT DE INTERVENÇÃO - GRAFOMOTRICIDADE - ATIVIDADE PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ebook-de-atividades-grafomotricidade/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'L2BMO') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT DE INTERVENÇÃO  DISCALCULIA - ATIVIDADE PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ebook-de-atividades-discalculia/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MBL2R') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT DE INTERVENÇÃO - ESTÍMULO COGNITIVO - ATIVIDADE PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ebook-de-atividades-estimulo-cognitivo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'Z7MP') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT DE INTERVENÇÃO AUTISMO: HABILIDADE DE CATEGORIZAÇÃO - ATIVIDADE PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-estimulacao-cognitiva-atencao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'L2BMA') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT DE INTERVENÇÃO AUTISMO: HABILIDADE DE PAREAMENTO - ATIVIDADE PRÁTICA - VOLUME 1<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ebook-de-atividades-autismo-habilidad-f75d1f/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MP79') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ALTAS HABILIDADES: AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-altas-habilidades-avaliac/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'P79M') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO TEÓRICO E PRÁTICO EM INTERPRETAÇÃO DO DESENHO INFANTIL<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-teorico-e-pratico-em-inte/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MP79W') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: SÍNDROME DE WILLIAMS - AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/sindrome-de-wiliams-avaliacao-e-interv/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '79MP') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DEFICIÊNCIA INTELECTUAL E APRENDIZAGEM<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/deficiencia-intelectual-e-aprendizagem/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'M79P') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO TEÓRICO E PRÁTICO - AUTISMO EM ADULTOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-teorico-e-pratico-autis/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MP79K') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO DEVOLUTIVA DESCOMPLICADA: O PASSO A PASSO DA DEVOLUTIVA CLÍNICA E EDUCACIONAL<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-devolutiva-descomplicada-o/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '79MPA') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ENSINO DE HABILIDADES SOCIAIS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-ensino-de-habilidades-soci/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'MP79V') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DIAGNÓSTICO DO AUTISMO: Aplicação da avaliação diagnóstica baseada no ADOS-2<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/diagnosticodoautismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '9AFT') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT ESTIMULAÇÃO COGNITIVA - MEMORIZAÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-estimulacao-cognitiva-atencao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'G79A') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT ESTIMULAÇÃO COGNITIVA - ATENÇÃO (TDAH)<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-estimulacao-cognitiva-atencao-tda/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'AFT9') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT ESTIMULAÇÃO COGNITIVA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-estimulacao-cognitiva/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'FT9A') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT ESTIMULAÇÃO COGNITIVA - ATENÇÃO E PLANEJAMENTO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-estimulacao-cognitiva-atencao-e-pl/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'FT9AX') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - AUTISMO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'T9AF') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: NEUROKIDS - ESTIMULAÇÃO COGNITIVA PARA A APRENDIZAGEM<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/neurokids-estimulacao-cognitiva-para-a/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'AFT9L') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - AVALIAÇÃO DO BRINCAR<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-avaliacao-do-brincar/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'T9AFQ') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - AVALIAÇÃO DO DESENVOLVIMENTO INFANTIL<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-avaliacao-do-desenvolvimen/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'FT9AR') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO TEÓRICO E PRÁTICO - ALFABETIZAÇÃO NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-teorico-e-pratico-alfab/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'FT9A4') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - CONTAÇÃO DE HISTÓRIAS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-contacao-de-historias/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'V46D') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ALFABETIZAÇÃO PARA ADULTOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-alfabetizacao-para-adulto/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'D46V') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - REABILITAÇÃO COGNITIVA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-reabilitacao-cognitiva/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'V6D4') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ALZHEIMER: INTERVENÇÃO COGNITIVA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-alzheimer/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '6D4V') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: KIT: NEUROREABILITAÇÃO - ADULTOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/kit-neuroreabilitacao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '64VD') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - LUDODIAGNÓSTICO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-ludodiagnostico/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'D46VR') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DESCOMPLICANDO VB-MAPP - AVALIAÇÃO E INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/formacao-vbmapp-na-pratica/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'V4D6') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: AUTISMO - TREINAMENTO PARA PAIS E CUIDADORES<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/autismo-treinamento-para-pais-e-cuidad/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'D46VY') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - NEUROEDUCAÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-neuroeducacao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '64VDS') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO: PSICOPEDAGOGIA E PEDAGOGIA HOSPITALAR<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-teorico-e-pratico-em-psic/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '64VDP') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ATIVIDADES PARA PEDAGOGOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/atividades-para-pedagogos/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'HP3N') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: INTERVENÇÃO PRECOCE BASEADA NO MODELO DENVER<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/intervencao-precoce-baseada-no-modelo-de/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'M3PH') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - PSICOMOTRICIDADE E APRENDIZAGEM NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-psicomotricidade-e-aprendi/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'PH3H') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - ROTINA FAMILIAR E ESCOLAR COM BASE NA NEUROCIÊNCIA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-rotina-familiar-e-escolar/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '3HPX') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - SÍNDROME DE DOWN<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-sindrome-de-down-saude-e/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '3HPN') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO- PARKINSON<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-parkinson/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'HP3X') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO EM DIFICULDADE DE APRENDIZAGEM NA MATEMÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-em-dificuldade-de-aprend/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'PH3N') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ATIVIDADES NEUROESTIMULAÇÃO NA PRÁTICA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/atividades-de-neuroestimulacao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'HP3X7') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO EM NEURODESENVOLVIMENTO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aprofundamento-em-neurodesenvolvimento/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '3HPNW') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - TREINO COGNITIVO E COMPORTAMENTAL PARA IDOSOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-treino-cognitivo-e-comport/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '3HPN8') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ENSINO ESTRUTURADO E O AUTISMO - DA AVALIAÇÃO À INTERVENÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ensino-estruturado-e-o-autismo-da-aval/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'XK2R') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ENSINO DO DESENHO INFANTIL – PROGRAMA ABA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ensino-do-desenho-infantil-programa-ab/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'R2XK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: AEE - ATENDIMENTO EDUCACIONAL ESPECIALIZADO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aee-atendimento-educacional-especializ/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'K2RX') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO- LINGUAGEM E AUTISMO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-linguagem-e-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '2RXK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ACOMPANHANTE TERAPÊUTICO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/acompanhente-terapeutico/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '2XKR') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: EDUCAÇÃO E INTELIGÊNCIA EMOCIONAL<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/educacao-e-inteligencia-emocional/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'R2XK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ANSIEDADE E APRENDIZAGEM<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/ansiedade/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'XKR2') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ESTRESSE E APRENDIZAGEM<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/estresse-e-aprendizagem/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'R2XK') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: AUTISMO E COMORBIDADES<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/comorbidades-no-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '2XKRT') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CAPACITAÇÃO - PARALISIA CEREBRAL E ENSINO DE HABILIDADES BÁSICAS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-paralisia-cerebral-e-ensin/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '2XKRP') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: GESTÃO DE COMPORTAMENTOS INAPROPRIADOS<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/gestao-de-comportamentos-inapropriados/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'JD8Y') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: NEURO TEA - O cérebro da criança autista<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/neuro-tea-o-cerebro-da-crianca-autista/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'Y8JD') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: Capacitação - Cuidador de idosos com Alzheimer<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/capacitacao-cuidador-de-idosos-com-alz/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'JY8D') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CONSULTA TDAH - PADRÃO OURO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/avaliacao-diagnostica-do-tdah-t78qbt/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '8JDY') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO DO IDADI - Instrumento de avaliação do desenvolvimento infantil<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-do-idadi/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '8YDJ') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: ABA DENTRO DA SALA DE AULA<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aba-dentro-da-sala-de-aula/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'YJD8') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CONSULTORIA - SUPERVISÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/consultoria-supervisao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'JDY8') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: CONSULTA DE AVALIAÇÃO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/consulta-de-avaliacao/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'YJD8') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO DO VINELAND-3<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-do-vineland-3/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '8YDJ') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO ADL 2- AVALIAÇÃO DO DESENVOLVIMENTO DA LINGUAGEM<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-do-adl-2-avaliacao-do-desenvo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '8YDJ') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROFUNDAMENTO MASCARAMENTO NO AUTISMO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/mascaramento-do-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'T95G') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO: INVENTÁRIO PORTAGE OPERACIONALIZADO (IPO)<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-inventario-portage-operacional/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'G95T') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO DO TESTE DENVER 2<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-do-teste-denver-2/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === 'T95G') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO PROLEC-SE-R<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-prolec-se-r/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '95TG') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APLICAÇÃO - TDE- 2 TESTE DE DESEMPENHO ESCOLAR<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/aplicacao-tde-2-teste-de-desempenho-e/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '95TG') {
+    check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: DIREITO NO AUTISMO<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/direito-no-autismo/" target="_blank">Ver detalhes</a>
+    `;
+} else if (codigo === '95GT4') {
+        check_result.innerHTML = `
+        <font class="cert_ok">CERTIFICADO VALIDADO COM SUCESSO! ✅</font><br/>
+        Curso: APROVA CONCURSOS- Método de Preparação Intensiva para o Concurso dos Correios<br/>
+        Carga horária: 40 horas.<br/>
+        Página de detalhes do curso: <a href="https://www.institutoneuro.com.br/cursos/apostila-concurso-dos-correios/" target="_blank">Ver detalhes</a>
+    `;
+    } else {
+        check_result.innerHTML = `<p style="color:red;">CERTIFICADO INVÁLIDO ❌</p>`;
+    }
+}
+</script>
+<script>
+    $('.ui.accordion')
+        .accordion()
+    ;
+</script>
+</body>
+</html>
